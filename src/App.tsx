@@ -337,185 +337,96 @@ function App() {
     ]);
   }, []);
 
-  const getSubsHandler = (c: "c1" | "c2") => () => {
-    if (!chart.current || !chart2.current) {
-      return;
-    }
-
-    // NOTE: the hacky part, not public chart api, but the bar
-    // distances is available to get from here
-    const barSpacingC1 =
-        (chart.current as any)?.TM?.Da?.hl ||
-        (chart.current as any)?.TM?.Da?.tl?.ws ||
-        chartSettings.timeScale.barSpacing;
-    const barSpacingC2 =
-        (chart2.current as any)?.TM?.Da?.hl ||
-        (chart2.current as any)?.TM?.Da?.tl?.ws ||
-        chartSettings.timeScale.barSpacing;
-    const rightOffsetC1 = (chart.current as any)?.TM?.Da?.sl;
-    const rightOffsetC2 = (chart2.current as any)?.TM?.Da?.sl;
-    if (barSpacingC1 !== barSpacingC2 || rightOffsetC1 !== rightOffsetC2) {
-      if (c === "c1") {
-        chart2.current.timeScale().applyOptions({
-          rightOffset: rightOffsetC1,
-          barSpacing: barSpacingC1
-        });
-      } else {
-        chart.current.timeScale().applyOptions({
-          rightOffset: rightOffsetC2,
-          barSpacing: barSpacingC2
-        });
-      }
-    }
-  };
-  const subsHandler = getSubsHandler("c1");
-  const subsHandler2 = getSubsHandler("c2");
-  const onMouseEnter = () => {
-    chart.current?.timeScale().subscribeVisibleLogicalRangeChange(subsHandler);
-  };
-  const onMouseLeave = () => {
-    chart.current
-        ?.timeScale()
-        .unsubscribeVisibleLogicalRangeChange(subsHandler);
-  };
-
-  const onMouseEnter2 = () => {
-    chart2.current
-        ?.timeScale()
-        .subscribeVisibleLogicalRangeChange(subsHandler2);
-  };
-  const onMouseLeave2 = () => {
-    chart2.current
-        ?.timeScale()
-        .unsubscribeVisibleLogicalRangeChange(subsHandler2);
-  };
-
   return (
       <div className="App">
         <div
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
             ref={chartContainerRef}
             id="tt1"
             key="tt1"
             style={{ borderBottom: "1px solid transparent" }}
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer2Ref}
             id="tt2"
             key="tt2"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer3Ref}
             id="tt3"
             key="tt3"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer4Ref}
             id="tt4"
             key="tt4"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer5Ref}
             id="tt5"
             key="tt5"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer6Ref}
             id="tt6"
             key="tt6"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer7Ref}
             id="tt7"
             key="tt7"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer8Ref}
             id="tt8"
             key="tt8"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer9Ref}
             id="tt9"
             key="tt9"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer10Ref}
             id="tt10"
             key="tt10"
         />
         <div
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
             ref={chartContainer11Ref}
             id="tt11"
             key="tt11"
             style={{ borderBottom: "1px solid transparent" }}
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer12Ref}
             id="tt12"
             key="tt12"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer13Ref}
             id="tt13"
             key="tt13"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer14Ref}
             id="tt14"
             key="tt14"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer15Ref}
             id="tt15"
             key="tt15"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer16Ref}
             id="tt16"
             key="tt16"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer17Ref}
             id="tt17"
             key="tt17"
         />
         <div
-            onMouseEnter={onMouseEnter2}
-            onMouseLeave={onMouseLeave2}
             ref={chartContainer18Ref}
             id="tt18"
             key="tt18"
